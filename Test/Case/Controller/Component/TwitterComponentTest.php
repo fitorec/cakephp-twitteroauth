@@ -1,8 +1,8 @@
 <?php
 
 App::uses('Controller', 'Controller');
-App::uses('ComponentCollection', 'Controller');
-App::uses('TwitterComponent', 'Controller/Component');
+App::uses('ComponentCollection', 'Twitteroauth.Controller');
+App::uses('TwitterComponent', 'Twitteroauth.Controller/Component');
 
 // A fake controller to test against
 class TestTwitterController extends Controller {
@@ -19,7 +19,6 @@ class TwitterComponentTest extends CakeTestCase {
     $Collection = new ComponentCollection();
     $this->TwitterComponent = new TwitterComponent($Collection);
     $this->Controller = new TestTwitterController();
-    $this->TwitterComponent->startup($this->Controller);
     $this->TwitterComponent->initialize($this->Controller);
   }
 

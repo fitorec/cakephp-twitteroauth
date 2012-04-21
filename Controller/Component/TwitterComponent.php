@@ -4,23 +4,21 @@
  * TwitterComponent
  *
  * Provides an entry point into @abraham's PHP twitteroauth Library.
- *
- * @author Mario Càllisto <mario.callisto@gmail.com>
- * @see http://book.cakephp.org/view/62/Components
  */
 class TwitterComponent extends Component {
 
   /**
-   * Default settings.
+   * Twitter app settings
+   * Don't forget to replace the placeholder text with your actual keys!
    *
    * @var array
    * @access protected
    */
   protected $_settings = array(
-    'consumer_key' => '',
-    'consumer_secret' => '',
-    'oauth_token' => '',
-    'oauth_token_secret' => ''
+    'consumer_key' => 'your-twitter-consumer-key',
+    'consumer_secret' => 'your-twitter-consumer_secret',
+    'oauth_token' => 'your-twitter-oauth_token_secret',
+    'oauth_token_secret' => 'your-twitter-oauth_token'
   );
 
   /**
@@ -35,13 +33,12 @@ class TwitterComponent extends Component {
   );
   
   /**
-   * Constructor
-   * saves the controller reference for later use
+   * Constructor merge settings
+   * 
    * @param ComponentCollection $collection A ComponentCollection this component can use to lazy load its components
    * @param array $settings Array of configuration settings.
    */
   public function __construct(ComponentCollection $collection, $settings = array()) {
-    $this->_controller = $collection->getController();
     parent::__construct($collection, $settings);
     // Now merge in any settings that were passed to us...
     $this->_settings = array_merge(
@@ -86,8 +83,7 @@ class TwitterComponent extends Component {
   }
 
   /**
-   * Instantiates and returns a new instance of the requested `$class`
-   * object.
+   * Instantiates and returns a new instance of the requested `$class` object.
    *
    * @param string $class
    * @return object
