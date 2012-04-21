@@ -1,4 +1,5 @@
 <?php
+Configure::load('twitter');
 
 /**
  * TwitterComponent
@@ -6,20 +7,6 @@
  * Provides an entry point into @abraham's PHP twitteroauth Library.
  */
 class TwitterComponent extends Component {
-
-  /**
-   * Twitter app settings
-   * Don't forget to replace the placeholder text with your actual keys!
-   *
-   * @var array
-   * @access protected
-   */
-  protected $_settings = array(
-    'consumer_key' => 'your-twitter-consumer-key',
-    'consumer_secret' => 'your-twitter-consumer_secret',
-    'oauth_token' => 'your-twitter-oauth_token_secret',
-    'oauth_token_secret' => 'your-twitter-oauth_token'
-  );
 
   /**
    * Holds an array of valid service "names" and the class that corresponds
@@ -40,10 +27,6 @@ class TwitterComponent extends Component {
    */
   public function __construct(ComponentCollection $collection, $settings = array()) {
     parent::__construct($collection, $settings);
-    // Now merge in any settings that were passed to us...
-    $this->_settings = array_merge(
-      $this->_settings, $settings
-    );
   }
   
   /**
@@ -91,10 +74,10 @@ class TwitterComponent extends Component {
    */
   private function __createService($class) {
     return new $class(
-      $this->_settings['consumer_key'],
-      $this->_settings['consumer_secret'],
-      $this->_settings['oauth_token'],
-      $this->_settings['oauth_token_secret']
+      Configure::read('Twitter.consumer_key'),      
+      Configure::read('Twitter.consumer_secret'),      
+      Configure::read('Twitter.oauth_token'),      
+      Configure::read('Twitter.oauth_token_secret')
     );
   }  
 }

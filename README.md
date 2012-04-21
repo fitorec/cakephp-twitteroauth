@@ -2,16 +2,16 @@
 
 Version 1.0
 
-The Twitteroauth plugin for CakePHP provides a (very) thin veil over [abraham&#39;s twitteroauth](https://github.com/abraham/twitteroauth) for PHP for CakePHP 2.x applications.
+The Twitteroauth plugin for CakePHP provides a (very) thin veil over for CakePHP 2.x applications [Abraham Williams' twitteroauth](https://github.com/abraham/twitteroauth) for PHP.
 
 ## Usage ##
 
-To use the Twitteroauth plugin for requests requiring authentication you must populate the following two lines in your `/app/Plugin/Twitteroauth/Controller/Component/TwitterComponent.php` file.
+To use the Twitteroauth plugin for requests requiring authentication you must populate the following four lines in your `/app/Plugin/Twitteroauth/Config/twitter.php` file.
 
-    'consumer_key' => 'your-twitter-consumer-key',
-    'consumer_secret' => 'your-twitter-consumer_secret',
-    'oauth_token' => 'your-twitter-oauth_token_secret',
-    'oauth_token_secret' => 'your-twitter-oauth_token'
+    'consumer_key' => 'YOUR_TWITTER_CONSUMER_KEY',
+    'consumer_secret' => 'YOUR_TWITTER_CONSUMER_SECRET',
+    'oauth_token' => 'YOUR_TWITTER_OAUTH_TOKEN_SECRET',
+    'oauth_token_secret' => 'YOUR_TWITTER_OAUTH_TOKEN'
 
 Don't forget to replace the placeholder text with your actual keys!
 

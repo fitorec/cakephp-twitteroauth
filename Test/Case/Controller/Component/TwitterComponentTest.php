@@ -1,5 +1,12 @@
 <?php
 
+// set config default to plugin Config dir
+App::uses('PhpReader', 'Configure');
+Configure::config('default', new PhpReader(ROOT.'/app/Plugin/Twitteroauth/Config/'));
+
+// set path to plugin Vendor dir
+App::build(array('Vendor' => array(ROOT.'/app/Plugin/Twitteroauth/Vendor/')));
+
 App::uses('Controller', 'Controller');
 App::uses('ComponentCollection', 'Twitteroauth.Controller');
 App::uses('TwitterComponent', 'Twitteroauth.Controller/Component');
@@ -10,23 +17,30 @@ class TestTwitterController extends Controller {
 
 class TwitterComponentTest extends CakeTestCase {
 
-  public $TwitterComponent = null;
+  public $Twitter = null;
   public $Controller = null;
 
   public function setUp() {
     parent::setUp();
     // Setup our component and fake test controller
     $Collection = new ComponentCollection();
-    $this->TwitterComponent = new TwitterComponent($Collection);
+    $this->Twitter = new TwitterComponent($Collection);
     $this->Controller = new TestTwitterController();
-    $this->TwitterComponent->initialize($this->Controller);
+    $this->Twitter->initialize($this->Controller);
   }
-
+  
+  public function tearDown() {
+    parent::tearDown();
+    // Clean up after we're done
+    unset($this->Twitter);
+    unset($this->Controller);
+  }
+  
   /**
    * test GET legal/privacy (requires no authentication)
    */
   public function testGetLegalPrivacy() {
-    $result = Set::reverse($this->TwitterComponent->OAuth->get(
+    $result = Set::reverse($this->Twitter->OAuth->get(
        'legal/privacy', array()
     ));
     $this->assertTrue(isset($result['privacy']));        
@@ -36,16 +50,9 @@ class TwitterComponentTest extends CakeTestCase {
    * test GET account/verify_credentials (requires authentication)
    */
   public function testGetAccountVerifyCredentials() {
-    $result = Set::reverse($this->TwitterComponent->OAuth->get(
+    $result = Set::reverse($this->Twitter->OAuth->get(
        'account/verify_credentials', array()
     ));
     $this->assertTrue(isset($result['id']));        
   }  
-  
-  public function tearDown() {
-    parent::tearDown();
-    // Clean up after we're done
-    unset($this->TwitterComponent);
-    unset($this->Controller);
-  }
 }
