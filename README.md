@@ -5,7 +5,7 @@ cakephp-twitteroauth
 
 Version 1.0
 
-The Twitteroauth plugin for CakePHP provides a (very) thin veil over abraham&#39;s twitteroauth for PHP for CakePHP 2.x applications.
+The Twitteroauth plugin for CakePHP provides a (very) thin veil over [abraham&#39;s twitteroauth](https://github.com/abraham/twitteroauth) for PHP for CakePHP 2.x applications.
 
 ## Usage ##
 
@@ -20,7 +20,9 @@ Don't forget to replace the placeholder text with your actual keys!
 
 Keys can be obtained for free from the [developer Twitter website](https://dev.twitter.com).
 
-Controllers that will be using twitteroauth require the Twitteroauth Component to be included.
+Controllers that will be using twitteroauth require the TwitterComponent to be included.
+
+    public $components = array('Twitteroauth.Twitter');
 
 In the controller simply call the twitteroauth method now available in the $this->Twitter->OAuth class.
 
