@@ -2,7 +2,7 @@
 
 Version 1.0
 
-The Twitteroauth plugin for CakePHP provides a (very) thin veil over for CakePHP 2.x applications [Abraham Williams' twitteroauth](https://github.com/abraham/twitteroauth) for PHP.
+The Twitteroauth plugin for CakePHP provides a (very) thin veil for CakePHP 2.x applications over [Abraham Williams' twitteroauth](https://github.com/abraham/twitteroauth) for PHP.
 
 ## Usage ##
 
