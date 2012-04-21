@@ -1,6 +1,3 @@
-cakephp-twitteroauth
-====================
-
 # Twitteroauth Plugin for CakePHP #
 
 Version 1.0
