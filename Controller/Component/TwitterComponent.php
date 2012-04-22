@@ -1,5 +1,5 @@
 <?php
-Configure::load('twitter');
+Configure::load('Twitteroauth.twitter');
 
 /**
  * TwitterComponent

@@ -1,9 +1,5 @@
 <?php
 
-// set config default to plugin Config dir
-App::uses('PhpReader', 'Configure');
-Configure::config('default', new PhpReader(ROOT.'/app/Plugin/Twitteroauth/Config/'));
-
 // set path to plugin Vendor dir
 App::build(array('Vendor' => array(ROOT.'/app/Plugin/Twitteroauth/Vendor/')));
 
