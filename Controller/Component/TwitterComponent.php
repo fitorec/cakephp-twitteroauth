@@ -40,7 +40,10 @@ class TwitterComponent extends Component {
    */
   public function initialize(Controller $controller) {
     // Handle loading our library firstly...
-    App::import('vendor', 'Twitter', array(
+    App::build(array('Vendor' => array(
+      APP.'Plugin'.DS.'Twitteroauth'.DS .'Vendor'.DS)
+    ));    
+    App::import('Vendor', 'Twitter', array(
       'file' => 'abraham-twitteroauth'.DS.'twitteroauth'.DS.'twitteroauth.php'
     ));
   }

@@ -1,8 +1,5 @@
 <?php
 
-// set path to plugin Vendor dir
-App::build(array('Vendor' => array(ROOT.'/app/Plugin/Twitteroauth/Vendor/')));
-
 App::uses('Controller', 'Controller');
 App::uses('ComponentCollection', 'Twitteroauth.Controller');
 App::uses('TwitterComponent', 'Twitteroauth.Controller/Component');
